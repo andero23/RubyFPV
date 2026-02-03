@@ -109,6 +109,7 @@ void _osd_plugins_populate_public_telemetry_info()
    g_VehicleTelemetryInfo.gps_fix_type = g_VehiclesRuntimeInfo[iVehicleIndex].headerFCTelemetry.gps_fix_type;
    g_VehicleTelemetryInfo.hdop = g_VehiclesRuntimeInfo[iVehicleIndex].headerFCTelemetry.hdop;
    g_VehicleTelemetryInfo.heading = g_VehiclesRuntimeInfo[iVehicleIndex].headerFCTelemetry.heading;
+   g_VehicleTelemetryInfo.yaw = g_VehiclesRuntimeInfo[iVehicleIndex].headerFCTelemetry.yaw;
    g_VehicleTelemetryInfo.latitude = g_VehiclesRuntimeInfo[iVehicleIndex].headerFCTelemetry.latitude;
    g_VehicleTelemetryInfo.longitude = g_VehiclesRuntimeInfo[iVehicleIndex].headerFCTelemetry.longitude;
 

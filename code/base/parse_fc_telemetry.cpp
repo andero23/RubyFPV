@@ -521,10 +521,16 @@ void _process_mav_message(t_packet_header_fc_telemetry* pdpfct, t_packet_header_
          pdpfct->aspeed = tmp32;
          break;
 
-      case MAVLINK_MSG_ID_ATTITUDE: 
+      case MAVLINK_MSG_ID_ATTITUDE:
          pdpfct->uFCFlags |= FC_TELE_FLAGS_HAS_ATTITUDE;
          pdpfct->roll = (mavlink_msg_attitude_get_roll(&msgMav) + 3.141592653589793)*5700.2958;
          pdpfct->pitch = (mavlink_msg_attitude_get_pitch(&msgMav) + 3.141592653589793)*5700.2958;
+         {
+            float yaw_rad = mavlink_msg_attitude_get_yaw(&msgMav);  // -π to +π
+            float yaw_deg = yaw_rad * (180.0f / 3.141592653589793f);  // -180 to +180
+            if (yaw_deg < 0) yaw_deg += 360.0f;  // Convert to 0-360
+            pdpfct->yaw = (u16)yaw_deg;
+         }
          break;
 
       case MAVLINK_MSG_ID_RC_CHANNELS_RAW:

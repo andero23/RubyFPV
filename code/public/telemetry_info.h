@@ -110,7 +110,8 @@ typedef struct
    u8 satelites;
    u8 gps_fix_type; // enum from MAVLink libraries, see above
    u16 hdop; // 1/100
-   u16 heading; // angle in degrees
+   u16 heading; // angle in degrees (GPS course over ground)
+   u16 yaw; // aircraft body yaw in degrees 0-360
 
    int32_t latitude; // 1/10000000;
    int32_t longitude; // 1/10000000;

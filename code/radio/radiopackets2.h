@@ -693,6 +693,7 @@ typedef struct
    u8 gps_fix_type;
    u16 hdop; // 1/100 th
    u16 heading;
+   u16 yaw; // aircraft body yaw from ATTITUDE msg, degrees 0-360
    int32_t latitude; // 1/10000000;
    int32_t longitude; // 1/10000000;
 
